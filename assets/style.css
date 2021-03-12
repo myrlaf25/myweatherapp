@@ -25,6 +25,9 @@
 #forecast {
     display:flex;
     justify-content:flex-start;
-    padding: 5px;
+    justify-content: space-between;
+    padding: 10px;
+    margin-left: 15px;
+    border-radius: 15px;
     
 }
