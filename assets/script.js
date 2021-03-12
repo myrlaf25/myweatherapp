@@ -12,7 +12,7 @@ function getFahrenheit(K) {
 }
 //function takes city name and retrieves weather data for that city
 function getWeather(city) {
-  var currentWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
+  var currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
 
   //send fetch request to get latitude and longitude
   fetch(currentWeatherUrl)
