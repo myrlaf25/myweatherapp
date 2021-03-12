@@ -11,7 +11,7 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Weather Dashboard</h1>
-          <p class="lead">This will provide you with the current weather in the city of your choice and a 5 day forecast.</p>
+          <p class="lead">This will provide you with the current weather and a 5 day forecast for the searched city.</p>
         </div>
       </div>
       <nav class="navbar navbar-light bg-light">
@@ -23,35 +23,39 @@
           aria-label="Search">
 
           <button class="btn btn-outline-success my-2 my-sm-0" 
-          id="add-city" 
+          id="searchBtn" 
           type="submit">Search</button>
 
           <button class="btn btn-outline-success mb-3" 
-          id="clear-history" 
+          id="clearHistoryBtn" 
           type="submit">Clear History</button>
           <div id="history">  
           </div>
         </div>
+
+    </nav>
+
+
         <form class="col-10">
-            <div class="row">
+            <div class="row currentCity">
             <div class="col-12">
             <span id="currentCity"></span>    
             </div>
             </div>
             <div class="col-10">
-                <div class="row">
+                <div class="rowTemp">
                 <div class="col-12">
                 <span id="temp"></span>    
                 </div>
                 </div>
                 <div class="col-10">
-                    <div class="row">
+                    <div class="rowHum">
                     <div class="col-12">
                     <span id="humidity"></span>    
                     </div>
                     </div>
                     <div class="col-10">
-                        <div class="row">
+                        <div class="rowUv">
                         <div class="col-12">
                         <span id="uvi"></span>    
                         </div>
@@ -61,7 +65,24 @@
 </div>
 </div>
 </form>
-      </nav>
+<div class="forecastContainer">
+    <div class="col-md-4">
+    </div>
+        <div class="col-md-8">
+            <div id="dashboard"></div>
+            <div id="forecast" class="row">
+                <h3>5 Day Forecast</h3>
+                <!-- <div class="col">
+
+                <div class="bg-primary rounded p-5">
+                <h4> 3/11/2021</h4>
+                <img src="" alt=""/>
+                <p> temp</p>
+                <p> humidity</p>
+    </div>
+  </div> -->
+  </div>
+  </div>    
 
   <script src="./assets/script.js"></script> 
 </body>
