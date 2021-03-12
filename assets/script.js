@@ -3,9 +3,21 @@ var api_key = "b709b8b1255dbfd93b409d2ca2ece655";
 var historyEl = document.querySelector("#history");
 var inputEl = document.querySelector("#city-name");
 var currentCity = document.querySelector("#currentCity");
+var searchedCities= document.querySelector("#searchedCities");
 
-var weatherHistory = JSON.parse(localStorage.getItem("search")) || [];
-console.log(weatherHistory);
+function renderSearchedCities(){
+    searchedCities.innerHTML="";
+    for(i=0; i< weatherHistory.length; i++){
+        var searchedEl = document.createElement('p');
+        searchedEl.textContent=weatherHistory[i];
+        searchedCities.append(searchedEl)
+        
+    }
+
+
+}
+
+
 
 function getFahrenheit(K) {
   return Math.floor((K - 273.15) * 1.8 + 32);
@@ -66,6 +78,7 @@ function getWeather(city) {
   
   
   
+  cityForecast.innerHTML="";
   
   for(i=0; i< 5; i++){
       var forecastIndex = data.daily[i];  
@@ -108,7 +121,7 @@ function getWeather(city) {
         //   temp.textContent= forecast.temp;
         forecastTemp.innerHTML = "Temp: " + getFahrenheit(data.daily[i].temp.day)  + " F";
         console.log(data.daily[i].temp);
-        console.log(getFahrenheit(data.daily[i].temp));
+        console.log(getFahrenheit(data.daily[i].temp.day));
         
         
         
@@ -120,27 +133,41 @@ function getWeather(city) {
         
         forecastContainer.append(forecastDate, forecastTemp, forecastHumidity);
         
+        // col.innerHTML="";
+
         col.append(forecastContainer);
         
         return col;
+        
         
     }
     }             
 }
 
 // }
+var weatherHistory = JSON.parse(localStorage.getItem("search")) || [];
+console.log(weatherHistory);
+
+renderSearchedCities();
 
 
 searchBtn.addEventListener("click", function (e) {
   var searchCity = inputEl.value;
   getWeather(searchCity);
   weatherHistory.push(searchCity);
+  
+  renderSearchedCities();
+
 
   localStorage.setItem("search", JSON.stringify(weatherHistory));
   
 });
+
 clearHistoryBtn.addEventListener("click", function(){
+    localStorage.clear();
     weatherHistory=[];
+    searchedCities.innerHTML="";
+
 }) 
 // getWeather("");
 
