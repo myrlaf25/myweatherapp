@@ -1,10 +1,12 @@
 //Key into the server
 var api_key = "b709b8b1255dbfd93b409d2ca2ece655";
+//variables to pull from the HTML ids
 var historyEl = document.querySelector("#history");
 var inputEl = document.querySelector("#city-name");
 var currentCity = document.querySelector("#currentCity");
 var searchedCities= document.querySelector("#searchedCities");
 
+//this function is to show the cities the used has been seraching for 
 function renderSearchedCities(){
     searchedCities.innerHTML="";
     for(i=0; i< weatherHistory.length; i++){
@@ -18,7 +20,7 @@ function renderSearchedCities(){
 }
 
 
-
+//this function is to convert the temperature the api is providing in kelvin to change to fahrenheit
 function getFahrenheit(K) {
   return Math.floor((K - 273.15) * 1.8 + 32);
 }
@@ -31,14 +33,14 @@ function getWeather(city) {
     .then((data) => data.json())
     .then(function (weather) {
       console.log(weather);
-
+//if the city cannot be found it will alert with a window pop up to the user it may not be found
       if (weather.cod === "404") {
         alert("City not found");
         return;
       }
-
+//thsi helped fix a bow of duplication
       currentCity.innerHTML = "" + weather.name;
-
+//create variables to pull the  latitue and longitude from the api info provided
       var lat = weather.coord.lat;
       var lon = weather.coord.lon;
 
@@ -51,7 +53,7 @@ function getWeather(city) {
           buildDashboard(onecallData);
         });
     });
-    
+    //this function is to get teh current date, temperature, humidity, and UV
     function buildDashboard(data) {
         var currentDate = new Date(data.current.dt * 1000);
         console.log(currentDate);
@@ -59,33 +61,31 @@ function getWeather(city) {
         var month = currentDate.getMonth() + 1;
         var year = currentDate.getFullYear();
         
-        var currentTemperature = document.querySelector("#temp");
+  var currentTemperature = document.querySelector("#temp");
   var currentHumidity = document.querySelector("#humidity");
   var currentUvi = document.querySelector("#uvi");
-  
   var searchBtn = document.querySelector("#searchBtn");
   var clearHistoryBtn = document.querySelector("#clearHistoryBtn");
   
   currentCity.innerHTML += " (" + month + "/" + day + "/" + year + ") ";
-  
   currentTemperature.innerHTML =
   "Temperature: " + getFahrenheit(data.current.temp) + " F";
   currentHumidity.innerHTML = "Humidity: " + data.current.humidity + " %";
-  currentUvi.innerHTML = "UV Index: " + data.current.uvi;
+  currentUvi.innerHTML = "UV Index: " + data.current.uvi + " <2=Low, 3-5=Mod, 6<=High";
   
   var cityForecast=document.querySelector("#forecast");
   
   
   
-  
+  //this prevents duplication in the for loop when displaying the 5 day forecast
   cityForecast.innerHTML="";
-  
-  for(i=0; i< 5; i++){
+  // thsi is a for loop to pull the array info from the one provided from the api up to index 5
+  for(i=0; i < 5; i++){
       var forecastIndex = data.daily[i];  
       console.log(forecastIndex);
       cityForecast.append(buildForecast(forecastIndex))
     }
-    
+    //this function is to get teh 5 day forecast for the city in the search input
     function buildForecast(forecast){
         
         var col =document.createElement("div");
@@ -93,7 +93,7 @@ function getWeather(city) {
         
         var forecastContainer =document.createElement("div");
         forecastContainer.classList.add("big-primary", "rounded", "p-5");
-        
+        //if I have time I will try to pull an icon for the weather display
         // var img = document.createElement("img");
         // img.setAttribute("src", forecast.url);
         
@@ -109,7 +109,7 @@ function getWeather(city) {
         var forecastDate=document.createElement("h4");
         forecastDate.textContent= forecast.forecastDate;
         
-        // forecast.setAttribute();
+       
         forecastDate.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
       
         
@@ -118,7 +118,7 @@ function getWeather(city) {
         
         
         var forecastTemp = document.createElement("p");
-        //   temp.textContent= forecast.temp;
+       
         forecastTemp.innerHTML = "Temp: " + getFahrenheit(data.daily[i].temp.day)  + " F";
         console.log(data.daily[i].temp);
         console.log(getFahrenheit(data.daily[i].temp.day));
@@ -129,17 +129,13 @@ function getWeather(city) {
         var forecastHumidity = document.createElement("p");
         forecastHumidity.innerHTML = "Humidity: " + (data.daily[i].humidity) + "%";
         
-        
-        
         forecastContainer.append(forecastDate, forecastTemp, forecastHumidity);
         
-        // col.innerHTML="";
+       
 
         col.append(forecastContainer);
         
-        return col;
-        
-        
+        return col;      
     }
     }             
 }
@@ -169,6 +165,6 @@ clearHistoryBtn.addEventListener("click", function(){
     searchedCities.innerHTML="";
 
 }) 
-// getWeather("");
+
 
 
