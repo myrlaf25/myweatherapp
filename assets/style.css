@@ -43,12 +43,17 @@ p {
     border-radius: 15px;
     
 }
+.forecastContainer {
+    flex-flow: row;
+    flex-wrap: wrap;
+    
+}
 
 @media screen and (max-width: 768px) {
     .jumbotron-fluid, .navbar, .col-10, .forecastContainer, .big-primary {
         width: 100%;
         background:#a7c5eb;
-        border-radius:5px;  
+        border-radius:5px; 
 
 }
 @media screen and (max-width: 576px) {
