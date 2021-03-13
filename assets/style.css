@@ -45,14 +45,14 @@ p {
 }
 
 @media screen and (max-width: 768px) {
-    .jumbotron-fluid, .navbar, .col-10, .forecastContainer {
+    .jumbotron-fluid, .navbar, .col-10, .forecastContainer, .big-primary {
         width: 100%;
         background:#a7c5eb;
         border-radius:5px;  
 
 }
 @media screen and (max-width: 576px) {
-    .jumbotron-fluid, .navbar, .col-10, .forecastContainer, #currentCity {
+    .jumbotron-fluid, .navbar, .col-10, .forecastContainer, .big-primary, #currentCity {
         width: 100%;
         background: #413c69;
         border-radius:5px;
