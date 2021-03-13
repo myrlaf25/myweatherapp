@@ -44,9 +44,7 @@ p {
     
 }
 .forecastContainer {
-    flex-flow: row;
-    flex-wrap: wrap;
-    flex-shrink: 3;
+    flex:1 0;
     
 }
 
