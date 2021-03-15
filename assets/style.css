@@ -15,14 +15,16 @@
     text-align: center;
 }
 body {
-    background-color: rgb(119, 154, 155);
+    background-image: url(https://images.unsplash.com/photo-1588706797058-f8a5325779ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+    color: white;
+    font-size: 1.5em;
 }
 .col-10 {
     margin-top: 15px;
 }
 
 #currentCity {
-    color: black;
+    color: white;
     font-size: 20px;
 }
 p {
@@ -51,14 +53,14 @@ p {
 @media screen and (max-width: 768px) {
     .jumbotron-fluid, .navbar, .col-10, .forecastContainer, .big-primary {
         width: 100%;
-        background:#a7c5eb;
+        background:#0b2950;
         border-radius:5px; 
 
 }
 @media screen and (max-width: 576px) {
     .jumbotron-fluid, .navbar, .col-10, .forecastContainer, .big-primary, #currentCity {
         width: 100%;
-        background: #413c69;
+        background: rgb(5, 160, 172);
         border-radius:5px;
         color:cornsilk;
 
