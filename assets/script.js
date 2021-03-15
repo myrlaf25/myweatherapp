@@ -6,6 +6,16 @@ var inputEl = document.querySelector("#city-name");
 var currentCity = document.querySelector("#currentCity");
 var searchedCities= document.querySelector("#searchedCities");
 
+searchedCities.addEventListener("click", function(e){
+    if (!e.target.matches("p")) {
+      return
+    }
+    var cityName = e.target.textContent;
+    getWeather(cityName);
+  });
+
+
+
 //this function is to show the cities the used has been seraching for 
 function renderSearchedCities(){
     searchedCities.innerHTML="";
