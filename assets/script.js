@@ -90,7 +90,7 @@ function getWeather(city) {
   //this prevents duplication in the for loop when displaying the 5 day forecast
   cityForecast.innerHTML="";
   // thsi is a for loop to pull the array info from the one provided from the api up to index 5
-  for(i=0; i < 5; i++){
+  for(i=1; i < 6; i++){
       var forecastIndex = data.daily[i];  
       console.log(forecastIndex);
       cityForecast.append(buildForecast(forecastIndex))
