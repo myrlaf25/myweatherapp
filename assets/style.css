@@ -25,11 +25,11 @@ body {
 }
 
 #currentCity {
-    color: rgb(36, 4, 112);
+    color: white;
     font-size: 50px;
     font-weight: bolder;
     float:left;
-    text-shadow:.5px .5px white;
+    text-shadow:2px 2px rgb(3, 3, 95);
   
 }
 p {
@@ -37,9 +37,9 @@ p {
     text-align: center;
     font-style: oblique;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  
+    font-weight: bold;
     color:black;
-    text-shadow:.5px .5px white;
+    text-shadow:1px 1px rgb(174, 174, 250);
     font-size: 35px;
 
 
@@ -67,10 +67,10 @@ h4{
 }
 #temp, #humidity, #uvi{
     font-size: 40px;
-    color: black;
+    color: rgb(3, 3, 95);
     text-align: center;
     font-weight: bold;
-    text-shadow:.5px .5px white;
+    text-shadow:1px 1px rgb(184, 184, 252);
 }
 form{
     display: flex;
@@ -85,18 +85,33 @@ form{
 }
 
 @media screen and (max-width: 768px) {
-    .jumbotron-fluid, .navbar, .col-10, .forecastContainer, .big-primary {
+    .jumbotron-fluid, .navbar, .col-10, .forecastContainer {
         width: 100%;
-        background:#0b2950;
         border-radius:5px; 
+        display: flex;
+        flex-direction: column;
 
+}
+.big-primary, #forecast{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }}
 @media screen and (max-width: 576px) {
-    .jumbotron-fluid, .navbar, .col-10, .forecastContainer, .big-primary, #currentCity {
+    .jumbotron-fluid, .navbar, .col-10, .forecastContainer, #currentCity {
         width: 100%;
-        background: rgb(5, 160, 172);
         border-radius:5px;
-        color:cornsilk;
+        display: flex;
+        flex-direction: column;
 
 } 
+.big-primary, #forecast{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+p{
+    color: rgb(184, 184, 252);
+    text-shadow:2px 2px black;
+}
 }
