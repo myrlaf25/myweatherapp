@@ -16,7 +16,7 @@ searchedCities.addEventListener("click", function(e){
 
 
 
-//this function is to show the cities the used has been seraching for 
+//this function is to show the cities the used has been searching for 
 function renderSearchedCities(){
     searchedCities.innerHTML="";
     for(i=0; i< weatherHistory.length; i++){
@@ -81,7 +81,7 @@ function getWeather(city) {
   currentTemperature.innerHTML =
   "Temperature: " + getFahrenheit(data.current.temp) + " F";
   currentHumidity.innerHTML = "Humidity: " + data.current.humidity + " %";
-  currentUvi.innerHTML = "UV Index: " + data.current.uvi + " <2=Low, 3-5=Mod, 6<=High";
+  currentUvi.innerHTML = "UV Index: " + data.current.uvi + " (Range: <2 Low, 3-5 Mod, 6< High) ";
   
   var cityForecast=document.querySelector("#forecast");
   
