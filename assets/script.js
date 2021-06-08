@@ -77,7 +77,7 @@ function getWeather(city) {
   var searchBtn = document.querySelector("#searchBtn");
   var clearHistoryBtn = document.querySelector("#clearHistoryBtn");
   
-  currentCity.innerHTML += " (" + month + "/" + day + "/" + year + ") ";
+  currentCity.innerHTML += " " + month + "/" + day + "/" + year + " ";
   currentTemperature.innerHTML =
   "Temperature: " + getFahrenheit(data.current.temp) + " F";
   currentHumidity.innerHTML = "Humidity: " + data.current.humidity + " %";

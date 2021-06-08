@@ -19,17 +19,22 @@ body {
     background-image: url(https://images.unsplash.com/photo-1592210454359-9043f067919b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);
     background-size: cover;
     font-size: 1.5em;
+    padding: 15px;
 }
 .col-10 {
     margin-top: 15px;
+   
 }
 
 #currentCity {
-    color: white;
+    color: black;
     font-size: 50px;
     font-weight: bolder;
     float:left;
-    text-shadow:2px 2px rgb(3, 3, 95);
+   margin-top: 20px;
+    border-radius: 15px;
+    text-shadow:.5px .5px white;
+   
   
 }
 p {
@@ -66,22 +71,36 @@ h4{
     font-size: 40px;
 }
 #temp, #humidity, #uvi{
-    font-size: 40px;
+    font-size: 30px;
     color: rgb(3, 3, 95);
     text-align: center;
     font-weight: bold;
     text-shadow:1px 1px rgb(184, 184, 252);
+    
 }
 form{
     display: flex;
    justify-content: center;
    justify-content: space-evenly;
+   
+   
+   
+}
+.currentDay{
+    background: cornsilk;
+    border-radius: 15px;
+    text-align: center;
+   
 }
 #searchedCities{
     text-transform: capitalize;
 }
 .big-primary{
     font-weight: bold;
+    border:solid;
+    border-radius: 15px;
+    background: black;
+    padding: 15px; 
 }
 
 @media screen and (max-width: 768px) {
@@ -96,6 +115,7 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin: 10px;
 }}
 @media screen and (max-width: 576px) {
     .jumbotron-fluid, .navbar, .col-10, .forecastContainer, #currentCity {
