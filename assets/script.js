@@ -91,11 +91,11 @@ function getWeather(city) {
     console.log(uviIndex)
     
     if(uviIndex <= 2.00) {
-      document.getElementById('range').innerHTML='UV Index is Low.';
+      document.getElementById('range').innerHTML='Index is Low.';
     } else if (uviIndex >=3.00 && uviIndex <=5.00){
-      document.getElementById('range').innerHTML='UV Index is Moderate.';
+      document.getElementById('range').innerHTML='Index is Moderate.';
     } else {
-      document.getElementById('range').innerHTML='UV Index is High.';
+      document.getElementById('range').innerHTML='Index is High.';
     }
   }
   findUviIndex();
