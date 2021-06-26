@@ -81,8 +81,35 @@ function getWeather(city) {
   currentTemperature.innerHTML =
   "Temperature: " + getFahrenheit(data.current.temp) + " F";
   currentHumidity.innerHTML = "Humidity: " + data.current.humidity + " %";
-  currentUvi.innerHTML = "UV Index: " + data.current.uvi + " (Range: <2 Low, 3-5 Mod, 6< High) ";
+
+  currentUvi.innerHTML = "UV Index: " + data.current.uvi;
   
+  // uviIndex = document.getElementById('range');
+  
+  function findUviIndex (uviIndex){
+    var uviIndex=data.current.uvi;
+    console.log(uviIndex)
+    
+    if(uviIndex <= 2.00) {
+      document.getElementById('range').innerHTML='UV Index is Low.';
+    } else if (uviIndex >=3.00 && uviIndex <=5.00){
+      document.getElementById('range').innerHTML='UV Index is Moderate.';
+    } else {
+      document.getElementById('range').innerHTML='UV Index is High.';
+    }
+  }
+  findUviIndex();
+
+  let icon = data.current.weather[0].icon;
+ var currentIcon = document.createElement('img');
+
+console.log(icon);
+ currentIcon.setAttribute('src', 'http://openweathermap.org/img/wn/' + icon + '@2x.png');
+
+
+
+
+
   var cityForecast=document.querySelector("#forecast");
   
   

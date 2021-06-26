@@ -37,6 +37,15 @@ body {
    
   
 }
+#musicBox {
+    color:white;
+    background-color: black;
+    text-align: center;
+}
+#playList {
+    list-style: none;
+    color:white;
+}
 p {
     align-items: flex-end;
     text-align: center;
