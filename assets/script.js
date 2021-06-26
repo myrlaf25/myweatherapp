@@ -73,7 +73,7 @@ function getWeather(city) {
 
     currentCity.innerHTML += " " + month + "/" + day + "/" + year + " ";
     currentTemperature.innerHTML =
-      "Temperature: " + getFahrenheit(data.current.temp) + " F";
+      "Temp: " + getFahrenheit(data.current.temp) + " F";
     currentHumidity.innerHTML = "Humidity: " + data.current.humidity + " %";
 
     currentUvi.innerHTML = "UV Index: " + data.current.uvi;
@@ -151,7 +151,24 @@ function getWeather(city) {
       var forecastHumidity = document.createElement("p");
       forecastHumidity.innerHTML = "Humidity: " + data.daily[i].humidity + "%";
 
-      forecastContainer.append(forecastDate, forecastTemp, forecastHumidity);
+      var forecastIcon = document.createElement("img");
+      let forecastImg = data.daily[i].weather[0].icon;
+     forecastIcon.innerHTML= forecastImg;
+     forecastIcon.setAttribute('src', "http://openweathermap.org/img/wn/" + icon + "@2x.png")
+
+     forecastIcon.append(forecastImg);
+
+    //  let icon = data.current.weather[0].icon;
+    //  var currentIcon = document.querySelector("#icon");
+    //  console.log(icon);
+    //  currentIcon.setAttribute(
+    //    "src",
+    //    "http://openweathermap.org/img/wn/" + icon + "@2x.png"
+    //  );
+   
+    //  currentIcon.append(icon);
+
+      forecastContainer.append(forecastDate, forecastIcon, forecastTemp, forecastHumidity);
 
       col.append(forecastContainer);
 
