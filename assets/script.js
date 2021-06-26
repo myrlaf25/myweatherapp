@@ -78,8 +78,6 @@ function getWeather(city) {
 
     currentUvi.innerHTML = "UV Index: " + data.current.uvi;
 
-    // uviIndex = document.getElementById('range');
-
     function findUviIndex(uviIndex) {
       var uviIndex = data.current.uvi;
       console.log(uviIndex);
@@ -126,9 +124,6 @@ function getWeather(city) {
 
       var forecastContainer = document.createElement("div");
       forecastContainer.classList.add("big-primary", "rounded", "p-5");
-      //if I have time I will try to pull an icon for the weather display
-      // var img = document.createElement("img");
-      // img.setAttribute("src", forecast.url);
 
       var forecastDate = new Date(data.daily[i].dt * 1000);
       console.log(forecastDate);
