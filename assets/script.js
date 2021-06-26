@@ -101,7 +101,7 @@ function getWeather(city) {
       "src",
       "http://openweathermap.org/img/wn/" + icon + "@2x.png"
     );
-  
+
     currentIcon.append(icon);
 
     let weatherDesc = data.current.weather[0].description;
@@ -153,22 +153,20 @@ function getWeather(city) {
 
       var forecastIcon = document.createElement("img");
       let forecastImg = data.daily[i].weather[0].icon;
-     forecastIcon.innerHTML= forecastImg;
-     forecastIcon.setAttribute('src', "http://openweathermap.org/img/wn/" + icon + "@2x.png")
+      forecastIcon.innerHTML = forecastImg;
+      forecastIcon.setAttribute(
+        "src",
+        "http://openweathermap.org/img/wn/" + forecastImg + "@2x.png"
+      );
 
-     forecastIcon.append(forecastImg);
+      forecastIcon.append(forecastImg);
 
-    //  let icon = data.current.weather[0].icon;
-    //  var currentIcon = document.querySelector("#icon");
-    //  console.log(icon);
-    //  currentIcon.setAttribute(
-    //    "src",
-    //    "http://openweathermap.org/img/wn/" + icon + "@2x.png"
-    //  );
-   
-    //  currentIcon.append(icon);
-
-      forecastContainer.append(forecastDate, forecastIcon, forecastTemp, forecastHumidity);
+      forecastContainer.append(
+        forecastDate,
+        forecastIcon,
+        forecastTemp,
+        forecastHumidity
+      );
 
       col.append(forecastContainer);
 
